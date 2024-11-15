@@ -1,0 +1,74 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import PricingCard from "@components/pricingcard.astro";
+
+const pricing = [
+  {
+    name: "Basic",
+    price: "Free",
+    popular: false,
+    features: [
+      "Lifetime free",
+      "Up to 2 patients",
+      "Monthly Support",
+      "Basic Integrations",
+      "Community Support",
+    ],
+    button: {
+      text: "Get Started",
+      link: "/hearthy/contact",
+    },
+  },
+  {
+    name: "Pro",
+    price: {
+      monthly: "$19",
+      annual: "$16",
+      discount: "10%",
+      original: "$24",
+    },
+    popular: true,
+    features: [
+      "All Free Features",
+      "3 or more patients",
+      "Bi-weekly Support",
+      "Priority Appointments",
+      "Live Chat Support",
+    ],
+    button: {
+      text: "Get Started",
+      link: "/hearthy/contact",
+    },
+  },
+  {
+    name: "Ultimate",
+    price: "Custom",
+    popular: false,
+    features: [
+      "All Pro Features",
+      "Advanced Integrations",
+      "Dedicated Account Manager",
+      "Physician On-Demand",
+      "24/7 Phone Support",
+    ],
+    button: {
+      text: "Contact us",
+      link: "/hearthy/contact",
+    },
+  },
+];
+---
+
+<Container className="pricing">
+  <Sectionhead>
+    <Fragment slot="title">Pricing</Fragment>
+    <Fragment slot="desc">
+      Simple & Predictable pricing. No Surprises.
+    </Fragment>
+  </Sectionhead>
+
+  <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-screen-lg mt-12">
+    {pricing.map((item) => <PricingCard plan={item} />)}
+  </div>
+</Container>
